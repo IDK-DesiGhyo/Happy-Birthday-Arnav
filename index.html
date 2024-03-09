@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Arnav</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins"> <!-- Google Fonts -->
 <style>
     body {
         display: flex;
@@ -115,6 +116,7 @@
         color: #14213d;
         font-size: 64px;
         font-family: 'Poppins', sans-serif;
+        display: block; /* Initially display countdown */
     }
 
     /* Styles for the logo */
@@ -124,6 +126,7 @@
         left: 50%;
         transform: translateX(-50%);
         width: 200px; /* Adjust the width as needed */
+        display: block; /* Initially display logo */
     }
 </style>
 </head>
@@ -154,6 +157,7 @@
     var confettiContainer = document.getElementById("confettiContainer");
     var birthdaySong = document.getElementById("birthdaySong");
     var countdownElement = document.getElementById("countdown");
+    var logoElement = document.getElementById("logo");
 
     // Target date (March 10th, 2024 at 00:00 hours)
     var targetDate = new Date('2024-03-10T00:00:00');
@@ -166,6 +170,9 @@
         if (timeDifference <= 0) {
             // Show the card when the target date is reached or passed
             document.getElementById("card").style.display = "block";
+            // Hide the logo and countdown
+            logoElement.style.display = "none";
+            countdownElement.style.display = "none";
         } else {
             // Calculate remaining time
             var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
@@ -231,11 +238,6 @@
     // Function to play the birthday song
     function playSong() {
         birthdaySong.play();
-    }
-
-    // Function to close the window after the song ends
-    function closeWindow() {
-        window.close();
     }
 </script>
 </body>
